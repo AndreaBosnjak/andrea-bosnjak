@@ -1,0 +1,40 @@
+
+import random
+
+imena = ['marija', 'matea', 'marta', 'petra', 'marijanela', 'iva', 'Sara', 'Ivana', 'Ante', 'roko', 'jakov', 'Antonija',
+         'nikolina', 'ivan', 'Josip', 'patrik', 'Tin', 'milica', 'Tomislav', 'Karla', 'leonarda', 'david', 'Ivanka', 'toni', 'ana marija',
+         'nikola', 'jozofina', 'josipa', 'leonardo', 'kiara', 'lucija', 'mateo', 'matija', 'lesley', 'iris', 'kevin', 'stipe',
+         'gariela', 'dragan', 'zvone', 'frane', 'mate', 'natali', 'fran', 'kristijan', 'vinko', 'mladen', 'mia', 'denis', 'andela',
+         'jadranka', 'katica', 'Ivica', 'marko', 'Ivan', 'karlo', 'alexa', 'andelka', 'vanja']
+
+sva_imena = {}
+for ime in imena:
+    if ime in sva_imena:
+        sva_imena[ime] += 1
+    else:
+        sva_imena[ime] = 1
+
+print("Brojanje sva imena:")
+for ime, broj in sva_imena.items():
+    print(f"{ime}: {broj}")
+
+ocjene = {ime: random.randint(1, 5) for ime in imena}
+
+brojac_ocjena = {}
+for ocjena in ocjene.values():
+    if ocjena in brojac_ocjena:
+        brojac_ocjena[ocjena] += 1
+    else:
+        brojac_ocjena[ocjena] = 1
+
+print("\nBrojanje ocjena:")
+for ocjena, broj in brojac_ocjena.items():
+    print(f"Ocjena {ocjena}: {broj}")
+
+broj_prolaznih = sum(broj for ocjena, broj in brojac_ocjena.items() if ocjena > 1)
+ukupno_ocjena = len(imena)
+postotak_prolaznosti = (broj_prolaznih / ukupno_ocjena) * 100
+
+print(f"\nPostotak prolaznosti: {postotak_prolaznosti:.2f}%")
+
+
